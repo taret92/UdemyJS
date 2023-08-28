@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="operaciones.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <section id="calculadora">
+    <section id="inputs">
+    <p>Primer Numero</p>
+    <input type="number" id="primerNumero">
+    <p>Segundo Numero</p>
+    <input type="number" id="segundoNumero">
+    </section>
+    <br>
+    <br>
+    <section id="botonesgeneral">
+    <section id="botones1">
+    <button class="operador" onclick="sumar()">+</button>
+    <button class="operador" onclick="restar()">-</button>
+    <button class="operador" onclick="multiplicar()">X</button>
+    <button class="operador" onclick="dividir()">/</button>
+    </section>
+    <section id="botones2">
+    <button class="operador" onclick="potenciar()">POW</button>
+    <button class="operador" onclick="raiz()">SQRT</button>
+    <button class="operador" onclick="valorAbsoluto()">ABS</button>
+    <button class="operador" onclick="redondear(),mostrarResultado()">ROUND</button>
+    </section>
+    <section id="botones 3">
+    <button class="operador" onclick="floor()">floor</button>
+    <button class="operador" onclick="ceil()">ceil</button>
+    <button class="operadorlargo" onclick="random()">Random</button>
+    </section>
+    </section>
+    <section id="resultado">
+    <h2>Resultado</h2>
+    <input type="text" id="textoResultado">
+    </section>
+</section>
+
+</body>
+</html>
