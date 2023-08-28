@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="disminuirTiempo()">
+    <section>
+    <h1>Bienvenido al cuestionario regresivo, por favor responde las siguientes preguntas</h1>
+    <h1 id="cuentaRegresiva" value="tiempoRestante"></h1>
+    <h2>¿Cuanto es 2 + 2?</h2>
+    <input type="number" id="respuesta1">
+    <h2>¿Cuanto es 2 + 3?</h2>
+    <input type="number" id="respuesta2">
+    <h2>¿Cuanto es 2 + 4?</h2>
+    <input type="number" id="respuesta3">
+    <h2>¿Cuanto es 2 + 5?</h2>
+    <input type="number" id="respuesta4">
+</section>
+
+<button onclick="enviarRespuestas()">Enviar respuestas</button>
+<button onclick="volveraintentar(), mostrarResultado()">Vuelve a intentar</button>
+
+</body>
+<script>
+    let tiempoRestante=30;
+    let tiempo= document.getElementById("cuentaRegresiva");
+    let fecha= new Date();
+    document.getElementById("cuentaRegresiva").textContent= tiempoRestante;
+
+    function disminuirTiempo(){
+        if(tiempoRestante == 0){
+            document.getElementById("cuentaRegresiva").textContent= 0;
+            alert("Se acabo el tiempo");
+        }else{
+            let contador=setTimeout("disminuirTiempo()", 1000);
+            let intervalo=setInterval("tiempoCumplido()", 1000);
+            tiempoRestante--;
+        }
+    }
+
+    function enviarRespuestas(){
+        let respuesta1= document.getElementById("respuesta1").value;
+        let respuesta2= document.getElementById("respuesta2").value;
+        let respuesta3= document.getElementById("respuesta3").value;
+        let respuesta4= document.getElementById("respuesta4").value;
+
+        if(respuesta1 == 4 && respuesta2 == 5 && respuesta3 == 6 && respuesta4 == 7){
+            alert("Felicidades, has ganado\nTu tiempo fue de: " + tiempoRestante + " segundos\n" + "y tus respuestas fueron: " + respuesta1 + ", " + respuesta2 + ", " + respuesta3 + ", " + respuesta4 + "\n" + fecha.toLocaleDateString("es-Es"));
+            clearTimeout(contador);
+            clearInterval(intervalo);
+        }else{
+            alert("Lo siento, has perdido");
+        }
+    }
+
+    function volveraintentar(){
+        location.reload();
+    }
+
+    function tiempoCumplido(){
+        document.getElementById("cuentaRegresiva").textContent = tiempoRestante;
+    }
+</script>
+
+</html>
