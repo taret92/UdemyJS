@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,4 +54,61 @@
         }
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos.css">
+    
+</head>
+<body onload="comenzarReloj()">
+
+    <input type="number" id="cuantoTiempo">
+    <button onclick="comenzarTiempo()">Alarma</button>
+    <h1 id="textoalarma">00:00:00</h1>
+
+    <audio id="audioAlarma" src="alarma.mp3" type="audio/mpeg">Sonido no habilitado</audio>
+    <script>
+        let SonidoAlarma= document.getElementById("audioAlarma");
+        function comenzarTiempo(){
+            var tiempo = setTimeout(tiempoCumplido, 1000 * document.getElementById("cuantoTiempo").value);
+        }
+        function tiempoCumplido(){
+            document.getElementById("textoalarma").style.color = "green";
+            SonidoAlarma.play();
+        }
+
+        function comenzarReloj(){
+            setInterval(ticTac, 1000);
+        }
+
+        function ticTac(){
+            var fecha = new Date();
+            var hora = fecha.getHours();
+            var minutos = fecha.getMinutes();
+            var segundos = fecha.getSeconds();
+            var ampm = "AM";
+            if(hora >= 12){
+                ampm = "PM";
+            }
+            if(hora > 12){
+                hora = hora - 12;
+            }
+            if(hora < 10){
+                hora = "0" + hora;
+            }
+            if(minutos < 10){
+                minutos = "0" + minutos;
+            }
+            if(segundos < 10){
+                segundos = "0" + segundos;
+            }
+            document.getElementById("textoalarma").innerHTML = hora + ":" + minutos + ":" + segundos + " " + ampm;
+        }
+    </script>
+</body>
+>>>>>>> d55a336b455464c9790fb7e612e394172d40ef31
 </html>
