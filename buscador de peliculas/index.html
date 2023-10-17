@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscador de películas y series</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Buscador de películas y series</h1>
+        <form id="formulario">
+            <select id="miSelector">
+                <option value="peliculas.json">Películas</option>
+                <option value="series.json">Series</option>
+            </select>
+            <input type="text" id="miInput" name="busqueda" placeholder="Escribe el título o parte del título" maxlength="35" required>
+            <button id="miBoton">Buscar</button>
+        </form>
+    </div>
+    <div>
+        <ul id="miListado"></ul>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
